@@ -1,9 +1,9 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline
 from langchain_community.vectorstores import FAISS
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 import time
@@ -433,7 +433,7 @@ with st.sidebar:
     st.markdown('<div style="font-family:\'Share Tech Mono\',monospace;font-size:0.7rem;color:#8b949e;letter-spacing:2px;margin-bottom:8px;">📄 UPLOAD DOCUMENT</div>', unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader(
-        "", type=["pdf"],
+        "Upload PDF", type=["pdf"],
         label_visibility="collapsed"
     )
 
